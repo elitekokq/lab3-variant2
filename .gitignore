@@ -1,0 +1,5 @@
+lab3
+*.o
+.DS_Store
+numbers.txt
+program2.c
