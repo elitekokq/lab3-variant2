@@ -122,8 +122,8 @@ double measure_time(int *a, int n, int use_merge) {
 }
 
 void benchmark() {
-    int sizes[] = {100, 250, 500};
-    int total = 3;
+    int sizes[] = {100, 250, 500, 1000, 2000, 4000, 8000};
+    int total = 7;
     printf("\nколичество   вставками (мс)   слиянием (мс)\n");
 
     for (int i = 0; i < total; i++) {
