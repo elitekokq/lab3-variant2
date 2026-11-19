@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include "lab3.h"
 
-#define LINE_SIZE 8192
+#define LINE_SIZE 1000
 
 void clear_buffer() {
     int c;
@@ -18,12 +18,11 @@ int get_choice() {
     char extra;
 
     while (1) {
-        printf("выберите пункт (1-3): ");
+        printf("выберите пункт 1-3: ");
         if (fgets(line, sizeof(line), stdin) == NULL) {
             return 3;
         }
-        if (sscanf(line, " %d %c", &choice, &extra) == 1 &&
-            choice >= 1 && choice <= 3) {
+        if (sscanf(line, " %d %c", &choice, &extra) == 1 && choice >= 1 && choice <= 3) {
             return choice;
         }
         printf("ошибка: введите 1, 2 или 3\n");

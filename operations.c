@@ -1,19 +1,33 @@
 #include <stdlib.h>
 #include "lab3.h"
 
+Node *push(Node *top, int value) {
+    Node *node = malloc(sizeof(Node));
+
+    if (node == NULL) {
+        return NULL;
+    }
+
+    node->value = value;
+    node->next = top;
+
+    return node;
+}
+
 Node *create_stack(int *numbers, int count) {
     Node *top = NULL;
 
     for (int i = 0; i < count; i++) {
-        Node *node = malloc(sizeof(Node));
-        if (node == NULL) {
+        Node *new_top = push(top, numbers[i]);
+
+        if (new_top == NULL) {
             free_stack(top);
             return NULL;
         }
-        node->value = numbers[i];
-        node->next = top;
-        top = node;
+
+        top = new_top;
     }
+
     return top;
 }
 
